@@ -1,0 +1,41 @@
+
+#Single-channel (e.g., channel 0)
+python train_tigraph_spaformer.py \
+  --train_npy /path/to/train.npy \
+  --test_npy  /path/to/test.npy \
+  --channels 0 \
+  --crop_mode center --crop_size 20 \
+  --epochs 300 --batch 32
+
+#Multi-channel (e.g., 0 1 2)
+python train_tigraph_spaformer.py \
+  --train_npy /path/to/train.npy \
+  --test_npy  /path/to/test.npy \
+  --channels 0 1 2 \
+  --crop_mode center --crop_size 20
+
+
+---
+
+## 3) `.gitignore`
+
+```gitignore
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# checkpoints / artifacts
+checkpoints/
+*.pt
+*_y_pred_test.npy
+*_y_true_test.npy
+*_results.json
+
+# notebooks
+.ipynb_checkpoints/
+
+# system
+.DS_Store
+Thumbs.db
